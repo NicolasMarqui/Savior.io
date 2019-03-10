@@ -9,7 +9,7 @@
 .navWrapper {
   width: 100%;
   height: 60px;
-  background-color: #0A4D77;
+  background-color: #0a4d77;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -56,7 +56,7 @@
 }
 
 .navWrapper .rightSideNav ul li a:hover {
-  border-bottom: 2px solid #FFCD00;
+  border-bottom: 2px solid #ffcd00;
 }
 
 .navWrapper .centerLogo {
@@ -110,7 +110,7 @@
 }
 
 .navWrapper .leftSideNav ul li .comecar {
-  background-color: #FFCD00;
+  background-color: #ffcd00;
   padding: 15%;
   border-radius: 5%;
   color: #000000;
@@ -122,7 +122,7 @@
 }
 
 .navWrapper .leftSideNav ul li a:hover {
-  border-bottom: 2px solid #FFCD00;
+  border-bottom: 2px solid #ffcd00;
 }
 
 .mainWrapper {
@@ -133,7 +133,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #093D5E;
+  background-color: #093d5e;
 }
 
 .mainWrapper .sideSocial {
@@ -159,7 +159,7 @@
 }
 
 .mainWrapper .sideSocial i {
-  color: #FFCD00;
+  color: #ffcd00;
   margin: 50%;
   cursor: pointer;
 }
@@ -181,14 +181,14 @@
 }
 
 .mainWrapper .centerMain .textMain h1 code::after {
-  content: 'Salve';
+  content: "Salve";
   -webkit-animation: changeName 2s infinite alternate;
           animation: changeName 2s infinite alternate;
 }
 
 @-webkit-keyframes changeName {
   from {
-    content: 'Salve';
+    content: "Salve";
   }
   to {
     content: "Aproveite";
@@ -197,15 +197,19 @@
 
 @keyframes changeName {
   from {
-    content: 'Salve';
+    content: "Salve";
   }
   to {
     content: "Aproveite";
   }
 }
 
+.mainWrapper .centerMain .textMain h1 span {
+  border-bottom: 2px solid #ffcd00;
+}
+
 .mainWrapper .centerMain .textMain h1 span:hover {
-  border-bottom: 4px solid #FFCD00;
+  border-bottom: 4px solid #ffcd00;
   -webkit-transition: 0.5s ease-in-out all;
   transition: 0.5s ease-in-out all;
 }
@@ -214,7 +218,7 @@
   padding: 4%;
   border: none;
   width: 60%;
-  background-color: #FFCD00;
+  background-color: #ffcd00;
   cursor: pointer;
   font-size: 20px;
   margin-bottom: 2%;
@@ -257,7 +261,7 @@
 .aboutMain {
   width: 100%;
   min-height: 100vh;
-  background-color: #093D5E;
+  background-color: #093d5e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,7 +328,7 @@
     color: #fff;
   }
   to {
-    color: #FFCD00;
+    color: #ffcd00;
   }
 }
 
@@ -333,14 +337,14 @@
     color: #fff;
   }
   to {
-    color: #FFCD00;
+    color: #ffcd00;
   }
 }
 
 .aboutMain .aboutText i {
   margin: 0 5%;
   cursor: pointer;
-  color: #FFCD00;
+  color: #ffcd00;
   -webkit-animation: moveArrow 0.5s infinite alternate;
           animation: moveArrow 0.5s infinite alternate;
 }
@@ -419,7 +423,7 @@
 .userReview {
   width: 100%;
   min-height: 100vh;
-  background-color: #093D5E;
+  background-color: #093d5e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,7 +453,9 @@
   margin-bottom: 2%;
 }
 
-.userReview .person h1, .userReview .person code, .userReview .person p {
+.userReview .person h1,
+.userReview .person code,
+.userReview .person p {
   color: #fff;
   font-weight: 100;
   width: 60%;
@@ -462,7 +468,7 @@
 .contato {
   width: 100%;
   min-height: 80vh;
-  background-color: #051F2F;
+  background-color: #051f2f;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -499,7 +505,8 @@
   resize: none;
 }
 
-.contato .centerContato input, .contato .centerContato textarea {
+.contato .centerContato input,
+.contato .centerContato textarea {
   padding: 2%;
   font-size: 20px;
 }
@@ -508,9 +515,122 @@
   position: fixed;
   bottom: 2%;
   right: 2%;
-  color: #FFCD00;
+  color: #ffcd00;
   z-index: 1;
   cursor: pointer;
+}
+
+.loginWrapper {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.loginWrapper .centerLogin {
+  position: absolute;
+  min-height: 60%;
+  width: 400px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.loginWrapper .centerLogin .titleLogin {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #0a4d77;
+  border: none;
+}
+
+.loginWrapper .centerLogin .titleLogin h1 {
+  font-size: 35px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.loginWrapper .centerLogin .bodyLogin {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginWrapper .centerLogin .bodyLogin input {
+  padding: 2%;
+  width: 60%;
+  margin: 2%;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.loginWrapper .centerLogin .bodyLogin button {
+  padding: 4%;
+  width: 66%;
+  border: none;
+  cursor: pointer;
+  background-color: #ffcd00;
+  color: black;
+}
+
+.loginWrapper .centerLogin .footerLogin {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  background-color: #0a4d77;
+}
+
+.loginWrapper .centerLogin .footerLogin a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.loginWrapper .leftSideLogin {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #0a4d77;
+  position: relative;
+}
+
+.loginWrapper .rightSideLogin {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #093d5e;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -525,7 +645,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #0A4D77;
+    background-color: #0a4d77;
     width: 100%;
     min-height: 60px;
     z-index: 1;
@@ -593,7 +713,7 @@
     padding: 14px 16px;
   }
   .fullNavOpen .centerFull ul li .comecarFull {
-    background-color: #FFCD00;
+    background-color: #ffcd00;
     color: black;
     padding: 4%;
     border-radius: 10%;
@@ -625,12 +745,12 @@
     margin-top: 10%;
   }
   .mainWrapper .centerMain .textMain code::after {
-    content: 'Salve';
+    content: "Salve";
     -webkit-animation: none !important;
             animation: none !important;
   }
   .mainWrapper .centerMain .textMain span {
-    border-bottom: 2px solid #FFCD00;
+    border-bottom: 2px solid #ffcd00;
   }
   .mainWrapper .centerMain .textMain button {
     padding: 6%;
@@ -671,7 +791,8 @@
   .contato .centerContato {
     text-align: center;
   }
-  .contato .centerContato input, .contato .centerContato textarea {
+  .contato .centerContato input,
+  .contato .centerContato textarea {
     width: 70%;
     margin: 0 auto;
   }
@@ -722,7 +843,7 @@
     text-align: justify;
   }
   .mainWrapper .centerMain .textMain h1 span {
-    border-bottom: 2px solid #FFCD00;
+    border-bottom: 2px solid #ffcd00;
   }
   .mainWrapper .centerMain img {
     display: none;

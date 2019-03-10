@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 //Import Model
-const Users = require('../../models/Users');
-const Contas = require('../../models/Contas');
+const Contas = require("../../models/Contas");
+const auth = require("../../middleware/auth");
 
-router.get('/hello', (req, res) => {
-    res.send('Hello from /hello')
-})
+router.get("/all", auth, (req, res) => {
+  Contas.find({ id: req.body.id }).then(user => console.log(user));
+});
 
 module.exports = router;

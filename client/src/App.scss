@@ -1,614 +1,729 @@
-$nav: #0A4D77;
+$nav: #0a4d77;
 $white: #fff;
 $border: 2px solid red;
-$yellow: #FFCD00;
-$bg: #093D5E;
+$yellow: #ffcd00;
+$bg: #093d5e;
 
 //NavBar
-.fullNav{
-    display: none;
+.fullNav {
+  display: none;
 }
 
-.fullNavOpen{
-    display: none;
+.fullNavOpen {
+  display: none;
 }
 
-.navWrapper{
-    width: 100%;
-    height: 60px;
-    background-color: $nav;
-    position: fixed;
+.navWrapper {
+  width: 100%;
+  height: 60px;
+  background-color: $nav;
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
+
+  .rightSideNav {
+    flex: 1;
     display: flex;
-    justify-content: space-evenly;
-    z-index: 1;
+    justify-content: center;
+    align-items: center;
 
-    .rightSideNav{
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    ul {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-evenly;
+      list-style-type: none;
 
-        ul{
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-evenly;
-            list-style-type: none;
+      li {
+        padding: 14px 16px;
 
-            li{
-                padding: 14px 16px;
+        a {
+          color: $white;
+          text-decoration: none;
 
-                a{
-                    color: $white;
-                    text-decoration: none;
-
-                    &:hover{
-                        border-bottom: 2px solid $yellow;
-                    }
-                }
-            }
+          &:hover {
+            border-bottom: 2px solid $yellow;
+          }
         }
+      }
     }
+  }
 
-    .centerLogo{
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .centerLogo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        h1{
-            color: $white;
-            cursor: pointer;
+    h1 {
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  .leftSideNav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-evenly;
+      list-style-type: none;
+
+      li {
+        padding: 14px 16px;
+
+        .comecar {
+          background-color: $yellow;
+          padding: 15%;
+          border-radius: 5%;
+          color: #000000;
         }
-    }
 
-    .leftSideNav{
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        a {
+          color: $white;
+          text-decoration: none;
 
-        ul{
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-evenly;
-            list-style-type: none;
-
-            li{
-                padding: 14px 16px;
-
-                .comecar{
-                    background-color: $yellow;
-                    padding: 15%;
-                    border-radius: 5%;
-                    color: #000000;
-                }
-
-                a{
-                    color: $white;
-                    text-decoration: none;
-
-                    &:hover{
-                        border-bottom: 2px solid $yellow;
-                    }
-                }
-            }
+          &:hover {
+            border-bottom: 2px solid $yellow;
+          }
         }
+      }
     }
+  }
 }
 
 //Main
-.mainWrapper{
-    width: 100%;
-    min-height: 100vh;
-    background-color: $white;
-    position: relative;
-    display: flex;
-    background-color: #093D5E;
+.mainWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $white;
+  position: relative;
+  display: flex;
+  background-color: #093d5e;
 
-    .sideSocial{
-        width: 60px;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-
-        i{
-            color: $yellow;
-            margin: 50%;
-            cursor: pointer;
-        }
-    }
-
-    .centerMain{
-        min-height: 200px;
-        min-width: 65%;
-        margin: auto;
-        display: flex;
-        position: relative;
-
-        .textMain{
-            h1{
-                font-size: 95px;
-                font-weight: 200;
-                color: $white;
-
-                code::after{
-                    content: 'Salve';
-                    animation: changeName 2s infinite alternate;
-                    
-                    @keyframes changeName {
-                        from{content: 'Salve'}
-                        to{content: "Aproveite";}
-                    }
-                }
-    
-                span:hover{
-                    border-bottom: 4px solid $yellow;
-                    transition: 0.5s ease-in-out all;
-                }
-            }
-    
-            button{
-                padding: 4%;
-                border: none;
-                width: 60%;
-                background-color: $yellow;
-                cursor: pointer;
-                font-size: 20px;
-                margin-bottom: 2%;
-            }
-        }
-
-        img{
-            position: absolute;
-            top: 0;
-            right: 0;
-            animation: move 0.9s infinite alternate;
-
-            @keyframes move {
-                from{top: 4%}
-                to{top: 0; right: 0}
-            }
-        }
-    }
-}
-
-.divider{
-    width: 100%;
-    height: 30px;
-    background-color: $white;
-}
-
-.aboutMain{
-    width: 100%;
-    min-height: 100vh;
-    background-color: #093D5E;
-    display: flex;
-
-    .infoAbout{
-        background-color: rgba($white, $alpha: 1);
-        min-height: 80%;
-        width: 30%;
-        margin: 5% 5% 0 5%;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-evenly;
-        align-items: center;
-
-        p{
-            width: 80%;
-            font-weight: 100;
-            position: relative;
-        }
-    }
-
-    .aboutText{
-        width: 50%;
-        min-height: 80%;
-        margin: 5% 5% 0 1%;
-        position: relative;
-        text-align: center;
-
-        h1{
-            font-size: 85px;
-            font-weight: 200;
-            padding: 4%;
-            color: $white;
-            text-align: left;
-
-            span:nth-child(1){
-                animation: fill 0.8s infinite alternate;
-                font-size: 90px;
-                background-color: red;
-                color: black;
-                
-            }
-
-            span:nth-child(2){
-                animation: fill2 1s infinite alternate;
-                font-size: 90px;
-
-                @keyframes fill2 {
-                    from{color: $white};
-                    to{color: $yellow};
-                }
-            }
-        }
-
-        i{
-            margin: 0 5%;
-            cursor: pointer;
-            color: $yellow;
-            animation: moveArrow 0.5s infinite alternate;
-
-            @keyframes moveArrow {
-                from{margin-top: 5%; transform: rotate(0)}
-                to{margin-top: 0; transform: rotate(90deg)}
-            }
-        }
-    }
-}
-
-.howTo{
-    width: 100%;
-    min-height: 80vh;
-    background-color: $white;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-
-    .step{
-        width: 30%;
-        margin: 0 3%;
-        min-height: 80%;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-evenly;
-        align-items: center;
-        text-align: center;
-        background-color: $white;
-
-        p{
-            width: 60%;
-            text-align: justify;
-        }
-    }
-}
-
-.userReview{
-    width: 100%;
-    min-height: 100vh;
-    background-color: $bg;
-    display: flex;
-
-    .person{
-        width: 50%;
-        height: 100vh;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        img{
-            border-radius: 50%;
-            margin-bottom: 2%;
-        }
-
-        h1,code,p{
-            color: $white;
-            font-weight: 100;
-            width: 60%;
-        }
-
-        p{
-            text-align: justify;
-        }
-    }
-}
-
-.contato{
-    width: 100%;
-    min-height: 80vh;
-    background-color: #051F2F;
-    position: relative;
+  .sideSocial {
+    width: 60px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
-    h1{
+    i {
+      color: $yellow;
+      margin: 50%;
+      cursor: pointer;
+    }
+  }
+
+  .centerMain {
+    min-height: 200px;
+    min-width: 65%;
+    margin: auto;
+    display: flex;
+    position: relative;
+
+    .textMain {
+      h1 {
+        font-size: 95px;
+        font-weight: 200;
         color: $white;
-        font-size: 55px;
-    }
 
-    .centerContato{
-        display: flex;
-        flex-flow: column nowrap;
-        margin-bottom: 2%;
+        code::after {
+          content: "Salve";
+          animation: changeName 2s infinite alternate;
 
-        textarea{
-            resize: none;
+          @keyframes changeName {
+            from {
+              content: "Salve";
+            }
+            to {
+              content: "Aproveite";
+            }
+          }
         }
 
-        input,textarea{
-            padding: 2%;
-            font-size: 20px;
+        span {
+          border-bottom: 2px solid $yellow;
         }
-    }
 
-    i{
-        position: fixed;
-        bottom: 2%;
-        right: 2%;
-        color: $yellow;
-        z-index: 1;
+        span:hover {
+          border-bottom: 4px solid $yellow;
+          transition: 0.5s ease-in-out all;
+        }
+      }
+
+      button {
+        padding: 4%;
+        border: none;
+        width: 60%;
+        background-color: $yellow;
         cursor: pointer;
+        font-size: 20px;
+        margin-bottom: 2%;
+      }
     }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      animation: move 0.9s infinite alternate;
+
+      @keyframes move {
+        from {
+          top: 4%;
+        }
+        to {
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+  }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and(max-width: 600px){
-    .navWrapper{
-        display: none;
+.divider {
+  width: 100%;
+  height: 30px;
+  background-color: $white;
+}
+
+.aboutMain {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #093d5e;
+  display: flex;
+
+  .infoAbout {
+    background-color: rgba($white, $alpha: 1);
+    min-height: 80%;
+    width: 30%;
+    margin: 5% 5% 0 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    p {
+      width: 80%;
+      font-weight: 100;
+      position: relative;
+    }
+  }
+
+  .aboutText {
+    width: 50%;
+    min-height: 80%;
+    margin: 5% 5% 0 1%;
+    position: relative;
+    text-align: center;
+
+    h1 {
+      font-size: 85px;
+      font-weight: 200;
+      padding: 4%;
+      color: $white;
+      text-align: left;
+
+      span:nth-child(1) {
+        animation: fill 0.8s infinite alternate;
+        font-size: 90px;
+        background-color: red;
+        color: black;
+      }
+
+      span:nth-child(2) {
+        animation: fill2 1s infinite alternate;
+        font-size: 90px;
+
+        @keyframes fill2 {
+          from {
+            color: $white;
+          }
+          to {
+            color: $yellow;
+          }
+        }
+      }
     }
 
-    .fullNav{
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: $nav;
+    i {
+      margin: 0 5%;
+      cursor: pointer;
+      color: $yellow;
+      animation: moveArrow 0.5s infinite alternate;
+
+      @keyframes moveArrow {
+        from {
+          margin-top: 5%;
+          transform: rotate(0);
+        }
+        to {
+          margin-top: 0;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
+
+.howTo {
+  width: 100%;
+  min-height: 80vh;
+  background-color: $white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .step {
+    width: 30%;
+    margin: 0 3%;
+    min-height: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: $white;
+
+    p {
+      width: 60%;
+      text-align: justify;
+    }
+  }
+}
+
+.userReview {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $bg;
+  display: flex;
+
+  .person {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    img {
+      border-radius: 50%;
+      margin-bottom: 2%;
+    }
+
+    h1,
+    code,
+    p {
+      color: $white;
+      font-weight: 100;
+      width: 60%;
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+}
+
+.contato {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #051f2f;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: $white;
+    font-size: 55px;
+  }
+
+  .centerContato {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 2%;
+
+    textarea {
+      resize: none;
+    }
+
+    input,
+    textarea {
+      padding: 2%;
+      font-size: 20px;
+    }
+  }
+
+  i {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    color: $yellow;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+
+// Login
+.loginWrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+
+  .centerLogin {
+    position: absolute;
+    min-height: 60%;
+    width: 400px;
+    background-color: $white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    .titleLogin {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $nav;
+      border: none;
+
+      h1{
+          font-size: 35px;
+          font-weight: 200;
+          color: $white;
+      }
+    }
+
+    .bodyLogin{
         width: 100%;
-        min-height: 60px;
-        z-index: 1;
+        height: 300px;
+        display: flex;
+        flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
 
-        i{
-            position: absolute;
-            left: 5%;
-            cursor: pointer;
+        input{
+            padding: 2%;
+            width: 60%;
+            margin: 2%;
+            letter-spacing: 2px;
+            font-weight: 300;
         }
 
-        h1{
-            color: $white;
+        button{
+            padding: 4%;
+            width: 66%;
+            border: none;
+            cursor: pointer;
+            background-color: $yellow;
+            color: black;
         }
     }
 
-    .fullNavOpen{
-        position: fixed;
+    .footerLogin{
+        width: 100%;
         display: flex;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 2;
-        background-color: rgba(0, 0, 0, 0.8);
-        animation: open 0.6s;
-        
-        @keyframes open {
-            from{width: 0};
-            to{width: 100%};
-        }
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        background-color: $nav;
 
-        i{
-            position: absolute;
-            top: 4%;
-            right: 5%;
+        a{
+            text-decoration: none;
             color: $white;
-            cursor: pointer;
-        }
-
-        .centerFull{
-            margin: auto;
-            text-align: center;
-
-            ul{
-                padding: 14px 16px;
-                list-style-type: none;
-
-                li{
-                    padding: 14px 16px;
-
-                    .comecarFull{
-                        background-color: $yellow;
-                        color: black;
-                        padding: 4%;
-                        border-radius: 10%;
-                    }
-
-                    a{
-                        text-decoration: none;
-                        color: $white;
-                        font-size: 45px;
-                    }
-                }
-            }
         }
     }
+  }
 
-    .mainWrapper{
+  .leftSideLogin {
+    flex: 1;
+    background-color: $nav;
+    position: relative;
+  }
+
+  .rightSideLogin {
+    flex: 1;
+    background-color: $bg;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and(max-width: 600px) {
+  .navWrapper {
+    display: none;
+  }
+
+  .fullNav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $nav;
+    width: 100%;
+    min-height: 60px;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      position: absolute;
+      left: 5%;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: $white;
+    }
+  }
+
+  .fullNavOpen {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: open 0.6s;
+
+    @keyframes open {
+      from {
+        width: 0;
+      }
+      to {
         width: 100%;
-        .sideSocial{
-            display: none;
-        }
-
-        .centerMain{
-            flex-flow: column nowrap;
-
-            .textMain{
-                height: 100vh;
-                flex-flow: column nowrap;
-                text-align: center;
-                margin-top: 10%;
-
-                code::after{
-                    content: 'Salve';
-                    animation: none !important;
-                }
-
-                span{
-                    border-bottom: 2px solid $yellow;
-                }
-
-                button{
-                    padding: 6%;
-                    width: 80%;
-                }
-            }
-
-            img{
-                display: none;
-            }
-        }
+      }
     }
 
-    .aboutMain{
+    i {
+      position: absolute;
+      top: 4%;
+      right: 5%;
+      color: $white;
+      cursor: pointer;
+    }
+
+    .centerFull {
+      margin: auto;
+      text-align: center;
+
+      ul {
+        padding: 14px 16px;
+        list-style-type: none;
+
+        li {
+          padding: 14px 16px;
+
+          .comecarFull {
+            background-color: $yellow;
+            color: black;
+            padding: 4%;
+            border-radius: 10%;
+          }
+
+          a {
+            text-decoration: none;
+            color: $white;
+            font-size: 45px;
+          }
+        }
+      }
+    }
+  }
+
+  .mainWrapper {
+    width: 100%;
+    .sideSocial {
+      display: none;
+    }
+
+    .centerMain {
+      flex-flow: column nowrap;
+
+      .textMain {
+        height: 100vh;
         flex-flow: column nowrap;
-        min-height: 100vh;
+        text-align: center;
+        margin-top: 10%;
 
-        .infoAbout{
-            min-height: 80%;
-            width: 90%;
-
-            p{
-                width: 80%;
-            }
-
+        code::after {
+          content: "Salve";
+          animation: none !important;
         }
 
-        .aboutText{
-            width: 90%;
-            margin: 0 auto;
-            min-height: 70vh;
-            margin-bottom: 5%;
-
-            h1{
-                font-size: 25px;
-
-                span{
-                    font-size: 20px;
-                }
-            }
+        span {
+          border-bottom: 2px solid $yellow;
         }
+
+        button {
+          padding: 6%;
+          width: 80%;
+        }
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .aboutMain {
+    flex-flow: column nowrap;
+    min-height: 100vh;
+
+    .infoAbout {
+      min-height: 80%;
+      width: 90%;
+
+      p {
+        width: 80%;
+      }
     }
 
-    .contato{
-        i{
-            display: all;
+    .aboutText {
+      width: 90%;
+      margin: 0 auto;
+      min-height: 70vh;
+      margin-bottom: 5%;
+
+      h1 {
+        font-size: 25px;
+
+        span {
+          font-size: 20px;
         }
+      }
+    }
+  }
 
-        .centerContato{
-            text-align: center;
-
-            input,textarea{
-                width: 70%;
-                margin: 0 auto;
-            }
-        }
-
+  .contato {
+    i {
+      display: all;
     }
 
-    .userReview{
-        flex-flow: column nowrap;
-        width: 100%;
-        
-        .person{
-            width: 100%;
-            
-        }
-    }
+    .centerContato {
+      text-align: center;
 
-    .howTo{
-        flex-flow: column nowrap;
-
-        .step{
-            width: 90%;
-        }
+      input,
+      textarea {
+        width: 70%;
+        margin: 0 auto;
+      }
     }
-} 
+  }
+
+  .userReview {
+    flex-flow: column nowrap;
+    width: 100%;
+
+    .person {
+      width: 100%;
+    }
+  }
+
+  .howTo {
+    flex-flow: column nowrap;
+
+    .step {
+      width: 90%;
+    }
+  }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 900px) {
-    .mainWrapper{
-        position: relative;
+  .mainWrapper {
+    position: relative;
 
-        .centerMain{
-            height: 80vh;
-            width: 100%;
-            display: flex;
-            flex-flow: column nowrap;
-            position: relative;
-            text-align: center;
+    .centerMain {
+      height: 80vh;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      position: relative;
+      text-align: center;
 
-            .textMain{
-                margin: auto;
-                h1{
-                    font-size: 105px;
-                    text-align: justify;
+      .textMain {
+        margin: auto;
+        h1 {
+          font-size: 105px;
+          text-align: justify;
 
-                    span{
-                        border-bottom: 2px solid $yellow;
-                    }
-                }
-
-            }
-
-            img{
-               display: none;
-            }
+          span {
+            border-bottom: 2px solid $yellow;
+          }
         }
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .aboutMain {
+    flex-flow: column nowrap;
+    width: 100%;
+
+    .infoAbout {
+      width: 90%;
+      margin-right: 0;
     }
 
-    .aboutMain{
-        flex-flow: column nowrap;
-        width: 100%;
-
-        .infoAbout{
-            width: 90%;
-            margin-right: 0;
-        }
-
-        .aboutText{
-            width: 90%;
-            margin-right: 0;
-        }
+    .aboutText {
+      width: 90%;
+      margin-right: 0;
     }
+  }
 
-    .howTo{
-        flex-flow: column nowrap;
+  .howTo {
+    flex-flow: column nowrap;
 
-        .step{
-            width: 100%;
-        }
+    .step {
+      width: 100%;
     }
+  }
 
-    .userReview{
-        flex-flow: column nowrap;
+  .userReview {
+    flex-flow: column nowrap;
 
-        .person{
-            width: 100%;
-            height: 40vh;
-            display: flex;
-            flex-flow: column nowrap;
-            margin-top: 5%;
-            margin-bottom: 2%;
-        }
+    .person {
+      width: 100%;
+      height: 40vh;
+      display: flex;
+      flex-flow: column nowrap;
+      margin-top: 5%;
+      margin-bottom: 2%;
     }
-} 
+  }
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {} 
+@media only screen and (min-width: 768px) {
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {} 
+@media only screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+}
