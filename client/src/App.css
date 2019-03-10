@@ -1,0 +1,778 @@
+.fullNav {
+  display: none;
+}
+
+.fullNavOpen {
+  display: none;
+}
+
+.navWrapper {
+  width: 100%;
+  height: 60px;
+  background-color: #0A4D77;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  z-index: 1;
+}
+
+.navWrapper .rightSideNav {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navWrapper .rightSideNav ul {
+  padding: 14px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.navWrapper .rightSideNav ul li {
+  padding: 14px 16px;
+}
+
+.navWrapper .rightSideNav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navWrapper .rightSideNav ul li a:hover {
+  border-bottom: 2px solid #FFCD00;
+}
+
+.navWrapper .centerLogo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navWrapper .centerLogo h1 {
+  color: #fff;
+  cursor: pointer;
+}
+
+.navWrapper .leftSideNav {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navWrapper .leftSideNav ul {
+  padding: 14px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style-type: none;
+}
+
+.navWrapper .leftSideNav ul li {
+  padding: 14px 16px;
+}
+
+.navWrapper .leftSideNav ul li .comecar {
+  background-color: #FFCD00;
+  padding: 15%;
+  border-radius: 5%;
+  color: #000000;
+}
+
+.navWrapper .leftSideNav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navWrapper .leftSideNav ul li a:hover {
+  border-bottom: 2px solid #FFCD00;
+}
+
+.mainWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #093D5E;
+}
+
+.mainWrapper .sideSocial {
+  width: 60px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
+.mainWrapper .sideSocial i {
+  color: #FFCD00;
+  margin: 50%;
+  cursor: pointer;
+}
+
+.mainWrapper .centerMain {
+  min-height: 200px;
+  min-width: 65%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.mainWrapper .centerMain .textMain h1 {
+  font-size: 95px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.mainWrapper .centerMain .textMain h1 code::after {
+  content: 'Salve';
+  -webkit-animation: changeName 2s infinite alternate;
+          animation: changeName 2s infinite alternate;
+}
+
+@-webkit-keyframes changeName {
+  from {
+    content: 'Salve';
+  }
+  to {
+    content: "Aproveite";
+  }
+}
+
+@keyframes changeName {
+  from {
+    content: 'Salve';
+  }
+  to {
+    content: "Aproveite";
+  }
+}
+
+.mainWrapper .centerMain .textMain h1 span:hover {
+  border-bottom: 4px solid #FFCD00;
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+}
+
+.mainWrapper .centerMain .textMain button {
+  padding: 4%;
+  border: none;
+  width: 60%;
+  background-color: #FFCD00;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 2%;
+}
+
+.mainWrapper .centerMain img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-animation: move 0.9s infinite alternate;
+          animation: move 0.9s infinite alternate;
+}
+
+@-webkit-keyframes move {
+  from {
+    top: 4%;
+  }
+  to {
+    top: 0;
+    right: 0;
+  }
+}
+
+@keyframes move {
+  from {
+    top: 4%;
+  }
+  to {
+    top: 0;
+    right: 0;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+}
+
+.aboutMain {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #093D5E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.aboutMain .infoAbout {
+  background-color: white;
+  min-height: 80%;
+  width: 30%;
+  margin: 5% 5% 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.aboutMain .infoAbout p {
+  width: 80%;
+  font-weight: 100;
+  position: relative;
+}
+
+.aboutMain .aboutText {
+  width: 50%;
+  min-height: 80%;
+  margin: 5% 5% 0 1%;
+  position: relative;
+  text-align: center;
+}
+
+.aboutMain .aboutText h1 {
+  font-size: 85px;
+  font-weight: 200;
+  padding: 4%;
+  color: #fff;
+  text-align: left;
+}
+
+.aboutMain .aboutText h1 span:nth-child(1) {
+  -webkit-animation: fill 0.8s infinite alternate;
+          animation: fill 0.8s infinite alternate;
+  font-size: 90px;
+  background-color: red;
+  color: black;
+}
+
+.aboutMain .aboutText h1 span:nth-child(2) {
+  -webkit-animation: fill2 1s infinite alternate;
+          animation: fill2 1s infinite alternate;
+  font-size: 90px;
+}
+
+@-webkit-keyframes fill2 {
+  from {
+    color: #fff;
+  }
+  to {
+    color: #FFCD00;
+  }
+}
+
+@keyframes fill2 {
+  from {
+    color: #fff;
+  }
+  to {
+    color: #FFCD00;
+  }
+}
+
+.aboutMain .aboutText i {
+  margin: 0 5%;
+  cursor: pointer;
+  color: #FFCD00;
+  -webkit-animation: moveArrow 0.5s infinite alternate;
+          animation: moveArrow 0.5s infinite alternate;
+}
+
+@-webkit-keyframes moveArrow {
+  from {
+    margin-top: 5%;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    margin-top: 0;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes moveArrow {
+  from {
+    margin-top: 5%;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    margin-top: 0;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+.howTo {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.howTo .step {
+  width: 30%;
+  margin: 0 3%;
+  min-height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: #fff;
+}
+
+.howTo .step p {
+  width: 60%;
+  text-align: justify;
+}
+
+.userReview {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #093D5E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.userReview .person {
+  width: 50%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.userReview .person img {
+  border-radius: 50%;
+  margin-bottom: 2%;
+}
+
+.userReview .person h1, .userReview .person code, .userReview .person p {
+  color: #fff;
+  font-weight: 100;
+  width: 60%;
+}
+
+.userReview .person p {
+  text-align: justify;
+}
+
+.contato {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #051F2F;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contato h1 {
+  color: #fff;
+  font-size: 55px;
+}
+
+.contato .centerContato {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin-bottom: 2%;
+}
+
+.contato .centerContato textarea {
+  resize: none;
+}
+
+.contato .centerContato input, .contato .centerContato textarea {
+  padding: 2%;
+  font-size: 20px;
+}
+
+.contato i {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  color: #FFCD00;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .navWrapper {
+    display: none;
+  }
+  .fullNav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0A4D77;
+    width: 100%;
+    min-height: 60px;
+    z-index: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .fullNav i {
+    position: absolute;
+    left: 5%;
+    cursor: pointer;
+  }
+  .fullNav h1 {
+    color: #fff;
+  }
+  .fullNavOpen {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-animation: open 0.6s;
+            animation: open 0.6s;
+  }
+  @-webkit-keyframes open {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes open {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .fullNavOpen i {
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    color: #fff;
+    cursor: pointer;
+  }
+  .fullNavOpen .centerFull {
+    margin: auto;
+    text-align: center;
+  }
+  .fullNavOpen .centerFull ul {
+    padding: 14px 16px;
+    list-style-type: none;
+  }
+  .fullNavOpen .centerFull ul li {
+    padding: 14px 16px;
+  }
+  .fullNavOpen .centerFull ul li .comecarFull {
+    background-color: #FFCD00;
+    color: black;
+    padding: 4%;
+    border-radius: 10%;
+  }
+  .fullNavOpen .centerFull ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 45px;
+  }
+  .mainWrapper {
+    width: 100%;
+  }
+  .mainWrapper .sideSocial {
+    display: none;
+  }
+  .mainWrapper .centerMain {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .mainWrapper .centerMain .textMain {
+    height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    text-align: center;
+    margin-top: 10%;
+  }
+  .mainWrapper .centerMain .textMain code::after {
+    content: 'Salve';
+    -webkit-animation: none !important;
+            animation: none !important;
+  }
+  .mainWrapper .centerMain .textMain span {
+    border-bottom: 2px solid #FFCD00;
+  }
+  .mainWrapper .centerMain .textMain button {
+    padding: 6%;
+    width: 80%;
+  }
+  .mainWrapper .centerMain img {
+    display: none;
+  }
+  .aboutMain {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    min-height: 100vh;
+  }
+  .aboutMain .infoAbout {
+    min-height: 80%;
+    width: 90%;
+  }
+  .aboutMain .infoAbout p {
+    width: 80%;
+  }
+  .aboutMain .aboutText {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 70vh;
+    margin-bottom: 5%;
+  }
+  .aboutMain .aboutText h1 {
+    font-size: 25px;
+  }
+  .aboutMain .aboutText h1 span {
+    font-size: 20px;
+  }
+  .contato i {
+    display: all;
+  }
+  .contato .centerContato {
+    text-align: center;
+  }
+  .contato .centerContato input, .contato .centerContato textarea {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .userReview {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    width: 100%;
+  }
+  .userReview .person {
+    width: 100%;
+  }
+  .howTo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .howTo .step {
+    width: 90%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .mainWrapper {
+    position: relative;
+  }
+  .mainWrapper .centerMain {
+    height: 80vh;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    position: relative;
+    text-align: center;
+  }
+  .mainWrapper .centerMain .textMain {
+    margin: auto;
+  }
+  .mainWrapper .centerMain .textMain h1 {
+    font-size: 105px;
+    text-align: justify;
+  }
+  .mainWrapper .centerMain .textMain h1 span {
+    border-bottom: 2px solid #FFCD00;
+  }
+  .mainWrapper .centerMain img {
+    display: none;
+  }
+  .aboutMain {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    width: 100%;
+  }
+  .aboutMain .infoAbout {
+    width: 90%;
+    margin-right: 0;
+  }
+  .aboutMain .aboutText {
+    width: 90%;
+    margin-right: 0;
+  }
+  .howTo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .howTo .step {
+    width: 100%;
+  }
+  .userReview {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .userReview .person {
+    width: 100%;
+    height: 40vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*# sourceMappingURL=App.css.map */
