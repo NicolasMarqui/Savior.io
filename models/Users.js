@@ -21,6 +21,16 @@ const usuarios = new Schema({
     quantidadeDinheiro: {
         type: Number,
         required: true,
+    },
+
+    quantidadeDinheiroFinal: {
+        type: Number,
+        default: 0
+    },
+
+    data_Registro: {
+        type: Date,
+        default: Date.now
     }
 })
 

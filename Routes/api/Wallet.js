@@ -1,12 +1,79 @@
 const express = require("express");
-const router = express.Router();
+const route = express.Router();
 
 //Import Model
 const Contas = require("../../models/Contas");
 const auth = require("../../middleware/auth");
+const Users = require('./../../models/Users');
 
-router.get("/all", auth, (req, res) => {
-  Contas.find({ id: req.body.id }).then(user => console.log(user));
-});
+route.post('/add', (req, res) => {
+  const { idPessoa, valorDinheiro, operacao, descricao, horaPost } = req.body;
 
-module.exports = router;
+
+  const newEntry = new Contas({
+    idPessoa,
+    valorDinheiro,
+    operacao,
+    descricao,
+    horaPost
+  })
+
+  newEntry.save()
+      .then(entry => res.status(200).json(entry))
+      .catch(err => console.log(err))
+})
+
+route.put('/edit', (req, res) => {
+  const id = req.query.id;
+  const op = req.query.op;
+  const valor = req.query.valor;
+
+  let total = 0;
+
+  Users.find({ _id: id}, (err, user) => {
+    if(err) throw err;
+
+    user.map(el => {
+      if(op == 'credito'){
+        total = +el.quantidadeDinheiro + +valor;
+        console.log(total);
+      }else{
+        total = +el.quantidadeDinheiro - +valor;
+      }
+  
+      Users.findOneAndUpdate({ _id: id }, {$set:{quantidadeDinheiro: total}}, {new: true}, (err,doc) =>{
+        if(err) throw err
+  
+        res.json(doc)
+  
+      })
+    })
+
+  })
+})
+
+route.get('/user/:id', (req,res) => {
+
+  const id = req.params.id;
+
+  Users.findById({ _id: id }, (err, user) => {
+    if(err) throw err;
+
+    res.json(user);
+  })
+
+})
+
+route.get('/all/:id', (req,res) => {
+
+  const id = req.params.id;
+
+  Contas.find({ idPessoa: id }).sort({ Date: -1 }).exec((err, user) => {
+    if(err) throw err;
+
+    res.json(user)
+  })
+
+})
+
+module.exports = route;

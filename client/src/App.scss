@@ -394,6 +394,7 @@ $bg: #093d5e;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    border: none;
 
     .titleLogin {
       width: 100%;
@@ -462,6 +463,215 @@ $bg: #093d5e;
     flex: 1;
     background-color: $bg;
   }
+}
+
+//SignUp
+.wrapperSignUp{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    .leftSideSignUp{
+        flex: 1;
+        background-color: $yellow;
+        position: relative;
+
+
+        .btLft{
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            align-items: flex-start;
+
+
+            h1{
+                margin: 0;
+                font-weight: 500;
+                font-size: 8rem;
+            }
+        }
+
+        
+    }
+
+    .rightSideSignUp{
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .centerSign{
+            width: 60%;
+            min-height: 80%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+
+            h1{
+                font-weight: 100;
+            }
+
+            .firstSign, .thirdSign{
+                width: 100%;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+
+                input{
+                    padding: 2%;
+                    margin: 10px;
+                }
+            }
+
+            button{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                border: none;
+                padding: 2%;
+                background-color: $yellow;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+
+            .thirdSign{
+                input{
+                    margin-bottom: 2%;
+                }
+            }
+
+        }
+    }
+}
+
+//DashBoard
+.dashWrapper{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .sideDash{
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        background-color: $bg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: slidein 0.7s;
+        z-index: 1;
+        border: $border;
+
+        @keyframes slidein {
+            from{width: 0};
+            to{width: width}
+        }
+
+        i{
+            top: 2%;
+            left: 20%;
+            position: absolute;
+            color: $white;
+            cursor: pointer;
+        }
+
+        code{
+            color: $white;
+            transform: rotate(-90deg);
+            cursor: pointer;
+        }
+
+        .centerSideItems{
+          display: block;
+          border: $border;
+
+          ul{
+            padding: 14px 16px;
+            list-style-type: none;
+          }
+        }
+    }
+
+    .topFixedDash{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3{
+           font-weight: 200; 
+
+           span{
+               border-bottom: 2px solid $yellow;
+           }
+        }
+
+        i{
+            position: absolute;
+            top: 20%;
+            right: 2%;
+            cursor: pointer;
+        }
+    }
+
+    .mainContentDash{
+        width: 90%;
+        min-height: 100vh;
+        border: $border;
+        margin: 0 auto;
+
+        .displayAmount{
+            border: $border;
+            margin-top: 5%;
+            text-align: center;
+
+            h1{
+                font-size: 55px;
+                font-weight: 400;
+
+                &::after{
+                  content: 'na carteira';
+                  font-size: 15px;
+                }
+            }
+        }
+
+        .showEvents{
+            border: 2px solid blue;
+            min-height: 400px;
+            display: flex;
+
+            .novaEntrada{
+                flex: 1;
+                min-height: 100%;
+                border: 2px solid green;
+                width: 400px;
+                overflow-y: scroll;
+                margin: 5%;
+            }
+
+            .showGraphMoney{
+              flex: 1;
+              border: $border;
+            }
+        }
+    }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -645,6 +855,29 @@ $bg: #093d5e;
     .step {
       width: 90%;
     }
+  }
+
+  .loginWrapper{
+      flex-flow: column nowrap;
+  }
+
+  .wrapperSignUp{
+      flex-flow: column-reverse nowrap;
+
+      .leftSideSignUp{
+          flex: 0;
+
+          .btLft{
+              display: none;
+          }
+      }
+
+      .rightSideSignUp{
+          .centerSign{
+              min-height: 100%;
+              width: 100%;
+          }
+      }
   }
 }
 

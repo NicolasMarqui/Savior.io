@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Nav from './Nav';
+import { Link } from 'react-router-dom';
 
 export default class Login extends Component {
 
@@ -25,6 +27,7 @@ export default class Login extends Component {
     return (
       <React.Fragment>
         <div className="loginWrapper">
+          <Nav />
           <div className="centerLogin">
             <div className="titleLogin">
               <h1>Venha fazer parte</h1>
@@ -45,7 +48,7 @@ export default class Login extends Component {
               <button onClick={this.sendLogin}>Login</button>
             </div>
             <div className="footerLogin">
-              <a href="_">Não tem Conta?</a>
+              <Link to="/signup">Não tem Conta?</Link>
             </div>
           </div>
           <div className="leftSideLogin" />

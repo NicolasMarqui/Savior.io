@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -10,18 +11,18 @@ const Nav = () => {
 
     return(
         <React.Fragment>
-            <div className="fullNav" onClick={() => openNav(true)}>
-                <i className="fas fa-bars fa-2x"></i>
-                <h1>Savior.io</h1>
+            <div className="fullNav">
+                <i className="fas fa-bars fa-2x" onClick={() => openNav(true)}></i>
+                <Link to="/" style={{textDecoration: 'none', color: 'white'}}><h1>Savior.io</h1></Link>
             </div>
 
             <div className="fullNavOpen" style={isOpen ? {display: 'flex'} : {display: 'none'}}>
                 <i className="fas fa-times fa-3x" onClick={() => openNav(false)}></i>
                 <div className="centerFull">
                     <ul>
-                        <li><a href="_">Home</a></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><a href="_">Sobre</a></li>
-                        <li><a href="_">Login</a></li>
+                        <li><Link to="/login">Login</Link></li>
                         <li><a href="_" className="comecarFull">Começar</a></li>
                     </ul>
                 </div>
@@ -30,16 +31,16 @@ const Nav = () => {
             <div className="navWrapper">
                 <div className="rightSideNav">
                     <ul>
-                        <li><a href="_">Home</a></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><a href="_">Sobre</a></li>
                     </ul>
                 </div>
                 <div className="centerLogo">
-                    <h1>Savior.io</h1>
+                    <Link to="/" style={{textDecoration: 'none', color: 'white'}}><h1>Savior.io</h1></Link>
                 </div>
                 <div className="leftSideNav">
                     <ul>
-                        <li><a href="_">Login</a></li>
+                        <li><Link to="/login">Login</Link></li>
                         <li><a href="_" className="comecar">Começar</a></li>
                     </ul>
                 </div>

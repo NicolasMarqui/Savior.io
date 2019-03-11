@@ -539,6 +539,7 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 1;
+  border: none;
 }
 
 .loginWrapper .centerLogin .titleLogin {
@@ -631,6 +632,255 @@
       -ms-flex: 1;
           flex: 1;
   background-color: #093d5e;
+}
+
+.wrapperSignUp {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrapperSignUp .leftSideSignUp {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #ffcd00;
+  position: relative;
+}
+
+.wrapperSignUp .leftSideSignUp .btLft {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.wrapperSignUp .leftSideSignUp .btLft h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 8rem;
+}
+
+.wrapperSignUp .rightSideSignUp {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign {
+  width: 60%;
+  min-height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign h1 {
+  font-weight: 100;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign .firstSign, .wrapperSignUp .rightSideSignUp .centerSign .thirdSign {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign .firstSign input, .wrapperSignUp .rightSideSignUp .centerSign .thirdSign input {
+  padding: 2%;
+  margin: 10px;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  border: none;
+  padding: 2%;
+  background-color: #ffcd00;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.wrapperSignUp .rightSideSignUp .centerSign .thirdSign input {
+  margin-bottom: 2%;
+}
+
+.dashWrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.dashWrapper .sideDash {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  background-color: #093d5e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: slidein 0.7s;
+          animation: slidein 0.7s;
+  z-index: 1;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    width: 0;
+  }
+  to {
+    width: width;
+  }
+}
+
+@keyframes slidein {
+  from {
+    width: 0;
+  }
+  to {
+    width: width;
+  }
+}
+
+.dashWrapper .sideDash i {
+  top: 2%;
+  left: 20%;
+  position: absolute;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashWrapper .sideDash code {
+  color: #fff;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  cursor: pointer;
+}
+
+.dashWrapper .topFixedDash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashWrapper .topFixedDash h3 {
+  font-weight: 200;
+}
+
+.dashWrapper .topFixedDash h3 span {
+  border-bottom: 2px solid #ffcd00;
+}
+
+.dashWrapper .topFixedDash i {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.dashWrapper .mainContentDash {
+  width: 90%;
+  min-height: 100vh;
+  border: 2px solid red;
+  margin: 0 auto;
+}
+
+.dashWrapper .mainContentDash .displayAmount {
+  border: 2px solid red;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.dashWrapper .mainContentDash .displayAmount h1 {
+  font-size: 55px;
+  font-weight: 400;
+}
+
+.dashWrapper .mainContentDash .displayAmount h1::after {
+  content: 'na carteira';
+  font-size: 15px;
+}
+
+.dashWrapper .mainContentDash .showEvents {
+  border: 2px solid blue;
+  min-height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashWrapper .mainContentDash .showEvents .novaEntrada {
+  min-height: 100%;
+  border: 2px solid green;
+  width: 200px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -814,6 +1064,30 @@
   }
   .howTo .step {
     width: 90%;
+  }
+  .loginWrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .wrapperSignUp {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+  }
+  .wrapperSignUp .leftSideSignUp {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+  }
+  .wrapperSignUp .leftSideSignUp .btLft {
+    display: none;
+  }
+  .wrapperSignUp .rightSideSignUp .centerSign {
+    min-height: 100%;
+    width: 100%;
   }
 }
 
