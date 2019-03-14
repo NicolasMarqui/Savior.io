@@ -758,6 +758,8 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
+  background-color: #0A4D77;
+  overflow: hidden;
 }
 
 .dashWrapper .sideDash {
@@ -778,7 +780,7 @@
           align-items: center;
   -webkit-animation: slidein 0.7s;
           animation: slidein 0.7s;
-  z-index: 1;
+  z-index: 3;
 }
 
 @-webkit-keyframes slidein {
@@ -814,15 +816,109 @@
   cursor: pointer;
 }
 
+.dashWrapper .sideDash .centerSideItems {
+  display: block;
+  text-align: center;
+}
+
+.dashWrapper .sideDash .centerSideItems ul {
+  padding: 14px 16px;
+  list-style-type: none;
+  width: 100%;
+}
+
+.dashWrapper .sideDash .centerSideItems ul li {
+  padding: 14px 16px;
+}
+
+.dashWrapper .sideDash .centerSideItems ul li a {
+  font-size: 35px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dashWrapper .sideDash .centerSideItems ul li a:hover {
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
+  border-bottom: 4px solid black;
+}
+
 .dashWrapper .topFixedDash {
-  position: fixed;
-  top: 0;
-  left: 0;
+  background-color: #093d5e;
   height: 60px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.dashWrapper .topFixedDash h3 {
+  font-weight: 200;
+  color: #fff;
+  padding: 2%;
+}
+
+.dashWrapper .topFixedDash h3 span {
+  border-bottom: 2px solid #ffcd00;
+}
+
+.dashWrapper .topFixedDash h3 span::before {
+  display: inline-block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  margin: 0 10px;
+  background: transparent url("https://randomuser.me/api/portraits/men/86.jpg") no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.dashWrapper .topFixedDash img {
+  border-radius: 50%;
+}
+
+.dashWrapper .topFixedDash i {
+  cursor: pointer;
+  display: none;
+}
+
+.dashWrapper .showNavMobile {
+  display: none;
+}
+
+.dashWrapper .mainContentDash {
+  width: 100%;
+  min-height: 90vh;
+  position: relative;
+}
+
+.dashWrapper .mainContentDash .displayAmount {
+  padding: 4%;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0E6BA6;
+}
+
+.dashWrapper .mainContentDash .displayAmount .leftSideAmount {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -831,46 +927,112 @@
           align-items: center;
 }
 
-.dashWrapper .topFixedDash h3 {
-  font-weight: 200;
-}
-
-.dashWrapper .topFixedDash h3 span {
-  border-bottom: 2px solid #ffcd00;
-}
-
-.dashWrapper .topFixedDash i {
-  position: absolute;
-  top: 20%;
-  right: 2%;
+.dashWrapper .mainContentDash .displayAmount .leftSideAmount button {
+  padding: 2%;
+  border: none;
+  background-color: black;
+  width: 60%;
+  color: #fff;
   cursor: pointer;
 }
 
-.dashWrapper .mainContentDash {
-  width: 90%;
-  min-height: 100vh;
-  border: 2px solid red;
-  margin: 0 auto;
+.dashWrapper .mainContentDash .displayAmount .leftSideAmount label, .dashWrapper .mainContentDash .displayAmount .leftSideAmount input {
+  display: inline-block;
 }
 
-.dashWrapper .mainContentDash .displayAmount {
-  border: 2px solid red;
-  margin-top: 5%;
-  text-align: center;
+.dashWrapper .mainContentDash .displayAmount .rightSideAmount {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
-.dashWrapper .mainContentDash .displayAmount h1 {
-  font-size: 55px;
-  font-weight: 400;
+.dashWrapper .mainContentDash .displayAmount .rightSideAmount code {
+  color: black;
+  border-bottom: 2px solid #ffcd00;
 }
 
-.dashWrapper .mainContentDash .displayAmount h1::after {
+.dashWrapper .mainContentDash .displayAmount .rightSideAmount h1 {
+  color: black;
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.dashWrapper .mainContentDash .displayAmount .rightSideAmount h1::after {
   content: 'na carteira';
   font-size: 15px;
+  display: block;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen i {
+  color: #fff;
+  top: 2%;
+  right: 2%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen .centerModal {
+  margin: auto;
+  min-height: 80%;
+  width: 80%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen .centerModal h1 {
+  color: #fff;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen .centerModal input {
+  padding: 1%;
+  margin: 1%;
+  width: 40%;
+  border: none;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen .centerModal select {
+  padding: 2%;
+  width: 10%;
+  border: none;
+  cursor: pointer;
+}
+
+.dashWrapper .mainContentDash .fullModalScreen .centerModal button {
+  padding: 2%;
+  border: none;
+  background-color: #ffcd00;
+  width: 30%;
+  margin: 2% 0 0;
+  cursor: pointer;
 }
 
 .dashWrapper .mainContentDash .showEvents {
-  border: 2px solid blue;
   min-height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -878,9 +1040,23 @@
 }
 
 .dashWrapper .mainContentDash .showEvents .novaEntrada {
-  min-height: 100%;
-  border: 2px solid green;
-  width: 200px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 50%;
+  width: 400px;
+  margin: 5%;
+}
+
+.dashWrapper .mainContentDash .showEvents .novaEntrada table tr td {
+  font-size: 15px;
+  padding: 2%;
+}
+
+.dashWrapper .mainContentDash .showEvents .showGraphMoney {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -1088,6 +1264,90 @@
   .wrapperSignUp .rightSideSignUp .centerSign {
     min-height: 100%;
     width: 100%;
+  }
+  .mainContentDash {
+    z-index: 1;
+    width: 100%;
+    border: 2px solid red;
+  }
+  .mainContentDash .displayAmount {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+  }
+  .mainContentDash .fullModalScreen {
+    width: 100%;
+    border: 2px solid red;
+  }
+  .mainContentDash .fullModalScreen .centerModal i {
+    position: absolute;
+    top: 2% !important;
+    right: 2% !important;
+  }
+  .mainContentDash .showEvents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .mainContentDash .showEvents .novaEntrada {
+    min-height: 200px;
+    width: 100%;
+  }
+  .mainContentDash .showEvents .novaEntrada table {
+    width: 50%;
+  }
+  .dashWrapper {
+    width: 100%;
+  }
+  .dashWrapper .sideDash {
+    display: none;
+  }
+  .dashWrapper .sideDash code {
+    display: none !important;
+  }
+  .dashWrapper .topFixedDash {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .dashWrapper .topFixedDash i {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    padding: 4%;
+  }
+  .dashWrapper .topFixedDash h3 {
+    text-align: center;
+  }
+  .dashWrapper .showNavMobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 80px;
+    background-color: #000000;
+    display: none;
+    text-align: center;
+  }
+  .dashWrapper .showNavMobile ul {
+    padding: 14px 16px;
+    list-style-type: none;
+  }
+  .dashWrapper .showNavMobile ul li {
+    padding: 14px;
+  }
+  .dashWrapper .showNavMobile ul li a {
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 2px solid black;
   }
 }
 

@@ -7,13 +7,14 @@ const auth = require("../../middleware/auth");
 const Users = require('./../../models/Users');
 
 route.post('/add', (req, res) => {
-  const { idPessoa, valorDinheiro, operacao, descricao, horaPost } = req.body;
+  const { idPessoa, valorDinheiro, operacao, descricao, horaPost , titulo} = req.body;
 
 
   const newEntry = new Contas({
     idPessoa,
     valorDinheiro,
     operacao,
+    titulo,
     descricao,
     horaPost
   })
@@ -68,7 +69,7 @@ route.get('/all/:id', (req,res) => {
 
   const id = req.params.id;
 
-  Contas.find({ idPessoa: id }).sort({ Date: -1 }).exec((err, user) => {
+  Contas.find({ idPessoa: id }).sort({ horaPost: -1 }).exec((err, user) => {
     if(err) throw err;
 
     res.json(user)

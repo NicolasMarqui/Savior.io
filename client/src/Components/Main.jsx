@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Nav from './Nav';
 import Wallet from '../Assets/wallet.png';
 import Review from './pessoas';
