@@ -24,9 +24,9 @@ mongoose.set("useCreateIndex", true);
 
 //Database Connection
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(db, { useNewUrlParser: true }) 
   .then(console.log("Banco de dados conectado com sucesso"))
   .catch(err => console.log(err));
-
+ 
 //Listen
 app.listen(port, () => console.log(`Server rodando na porta ${port}`));

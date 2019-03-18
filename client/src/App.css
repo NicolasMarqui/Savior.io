@@ -895,30 +895,27 @@
 
 .dashWrapper .mainContentDash {
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   position: relative;
-}
-
-.dashWrapper .mainContentDash .displayAmount {
-  padding: 4%;
-  text-align: right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #0E6BA6;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse nowrap;
+          flex-flow: row-reverse nowrap;
 }
 
-.dashWrapper .mainContentDash .displayAmount .leftSideAmount {
+.dashWrapper .mainContentDash .rightSideMain {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  background: url("./Assets/blue.jpg") no-repeat;
+  background-size: cover;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -927,40 +924,99 @@
           align-items: center;
 }
 
-.dashWrapper .mainContentDash .displayAmount .leftSideAmount button {
-  padding: 2%;
-  border: none;
-  background-color: black;
+.dashWrapper .mainContentDash .rightSideMain .overlayRight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.dashWrapper .mainContentDash .rightSideMain .centerTextRightMain {
   width: 60%;
-  color: #fff;
-  cursor: pointer;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-.dashWrapper .mainContentDash .displayAmount .leftSideAmount label, .dashWrapper .mainContentDash .displayAmount .leftSideAmount input {
-  display: inline-block;
+.dashWrapper .mainContentDash .rightSideMain .centerTextRightMain h1 {
+  font-size: 55px;
 }
 
-.dashWrapper .mainContentDash .displayAmount .rightSideAmount {
+.dashWrapper .mainContentDash .leftSideMain {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.dashWrapper .mainContentDash .displayAmount .rightSideAmount code {
-  color: black;
-  border-bottom: 2px solid #ffcd00;
+.dashWrapper .mainContentDash .leftSideMain .topMain {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
-.dashWrapper .mainContentDash .displayAmount .rightSideAmount h1 {
-  color: black;
-  font-weight: 500;
-  font-size: 60px;
+.dashWrapper .mainContentDash .leftSideMain .topMain code span {
+  color: #fff;
+  font-size: 25px;
 }
 
-.dashWrapper .mainContentDash .displayAmount .rightSideAmount h1::after {
-  content: 'na carteira';
-  font-size: 15px;
-  display: block;
+.dashWrapper .mainContentDash .leftSideMain .bottomMain {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #064180;
+}
+
+.dashWrapper .mainContentDash .leftSideMain .bottomMain button {
+  padding: 2%;
+  border: none;
+  margin: 5%;
+  width: 50%;
+  background-color: #ffcd00;
+  cursor: pointer;
 }
 
 .dashWrapper .mainContentDash .fullModalScreen {
@@ -1032,31 +1088,51 @@
   cursor: pointer;
 }
 
-.dashWrapper .mainContentDash .showEvents {
-  min-height: 400px;
+.modalInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: none;
 }
 
-.dashWrapper .mainContentDash .showEvents .novaEntrada {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  min-height: 50%;
-  width: 400px;
-  margin: 5%;
+.modalInfo i {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  color: #fff;
+  cursor: pointer;
 }
 
-.dashWrapper .mainContentDash .showEvents .novaEntrada table tr td {
-  font-size: 15px;
+.modalInfo .centerInfoDespesa {
+  margin: auto;
+  min-height: 200px;
+  width: 70%;
+  background-color: #fff;
+}
+
+.showTodas {
+  width: 80%;
+  margin: 5% auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+.showTodas .tableTodas tr:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.showTodas .tableTodas tr td {
   padding: 2%;
-}
-
-.dashWrapper .mainContentDash .showEvents .showGraphMoney {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  cursor: pointer;
+  border: 1px solid #000;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -1348,6 +1424,9 @@
     text-decoration: none;
     color: #fff;
     border-bottom: 2px solid black;
+  }
+  .showTodas .tableTodas {
+    overflow: scroll;
   }
 }
 

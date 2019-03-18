@@ -77,4 +77,16 @@ route.get('/all/:id', (req,res) => {
 
 })
 
+route.get('/despesa', (req, res) => {
+  const id = req.query.id
+  console.log(req.query.id)
+
+  Contas.findOne({ _id: id }).sort({ horaPost: -1 }).exec((err, conta) => {
+    if(err) throw err;
+
+    res.json(conta)
+  })
+ 
+})
+
 module.exports = route;

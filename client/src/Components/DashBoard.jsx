@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
+import Modal from './Modal';
 
 class DashBoard extends Component {
 
@@ -18,6 +21,9 @@ class DashBoard extends Component {
             op: 'credito',
             valor: '',
             isOpenMobile: false,
+            defaultIndex: 1,
+            despesaInfo: [],
+            openDespesa: false,
         }
     }
 
@@ -78,9 +84,19 @@ class DashBoard extends Component {
         this.setState({ isOpenMobile: !this.state.isOpenMobile })
     }
 
-  render() {
+    seeAll = () => {
+        this.setState({ defaultIndex: 1 });
+        window.scrollTo(0,700);
+    }
 
-    let total = this.state.todasOperacoesUsuarios.length;
+    openInfoAll = (id) => {
+        this.setState({ openDespesa: !this.state.openDespesa })
+        console.log(id)
+        axios.get(`http://localhost:5000/api/money/despesa?id=${id}`)
+            .then(res => console.log(res.data))
+    }
+
+  render() {
 
     return (
       <React.Fragment>
@@ -92,7 +108,7 @@ class DashBoard extends Component {
                 <code style={this.state.isOpen ? {display: 'none'} : {display: 'block'}}>Savior.io</code>
                 <div className="centerSideItems" style={!this.state.isOpen ? {display: 'none'} : {display: 'flex'}}>
                     <ul>
-                        <li><a href="_">Home</a></li>
+                        <li className="active"><a href="_">Home</a></li>
                         <li><a href="_">Ver Todas</a></li>
                         <li><a href="_">Adicionar Nova</a></li>
                     </ul>
@@ -117,63 +133,76 @@ class DashBoard extends Component {
             </div>
             <div className="mainContentDash">
                 <div className="fullModalScreen" style={this.state.isOpenModal ? { display: 'flex' } : { display: 'none' }}>
-                    <i className="fas fa-times fa-2x" onClick={() => this.openModal(false)}></i>
-                    <div className="centerModal">
-                        <h1>Adicionar Despesa</h1>
-                        <input type="text" placeholder="Titulo" value={this.state.titulo} onChange={this.handleData} name="titulo"/>
-                        <input type="text" placeholder="Valor" value={this.state.valor} onChange={this.handleData} name="valor"/>
-                        <select name="select" value={this.state.op} onChange={(e) => this.setState({ op: e.target.value })}>
-                            <option disabled>Escolha a operacao</option>
-                            <option value="credito">Crédito</option>
-                            <option value="debito">Débito</option>
-                        </select>
-                        <input type="text" placeholder="Descrição" value={this.state.desc} onChange={this.handleData} name="desc"/>
-                        <button onClick={this.salve}>Salvar</button>
+                        <i className="fas fa-times fa-2x" onClick={() => this.openModal(false)}></i>
+                        <div className="centerModal">
+                            <h1>Adicionar Despesa</h1>
+                            <input type="text" placeholder="Titulo" value={this.state.titulo} onChange={this.handleData} name="titulo"/>
+                            <input type="text" placeholder="Valor" value={this.state.valor} onChange={this.handleData} name="valor"/>
+                            <select name="select" value={this.state.op} onChange={(e) => this.setState({ op: e.target.value })}>
+                                <option disabled>Escolha a operacao</option>
+                                <option value="credito">Crédito</option>
+                                <option value="debito">Débito</option>
+                            </select>
+                            <input type="text" placeholder="Descrição" value={this.state.desc} onChange={this.handleData} name="desc"/>
+                            <button onClick={this.salve}>Salvar</button>
+                        </div>
                     </div>
-                </div>
-                <div className="displayAmount" >
-                    <div className="leftSideAmount">
-                        <button onClick={() => this.openModal(true)}>Adicionar</button>
-                        <label htmlFor="check">Auto-reload</label>
-                        <input type="checkbox" name="check" checked={this.state.autoReload} onChange={() => this.setState({ autoReload: !this.state.autoReload })}/>
+                <div className="rightSideMain">
+                    <div className="overlayRight">
                     </div>
-                    <div className="rightSideAmount">
-                        <code>Você possui</code>
+                    <div className="centerTextRightMain">
+                        <code>Seu saldo atual</code>
                         <h1>R${this.state.allOp.quantidadeDinheiro},00</h1>
                     </div>
                 </div>
-                <div className="showEvents">
-                    <div className="novaEntrada">
-                    <code>Ultimos Lançamentos</code>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Titulo</td>
-                                <td>Valor</td>
-                                <td>Operação</td>
-                                <td>Descrição</td>
-                                <td>Data</td>
-                            </tr>
-                            {
-                                this.state.todasOperacoesUsuarios.length === 0 ? <h1>Nenhum registro</h1> : 
-                                this.state.todasOperacoesUsuarios.map(el => (
-                                    <tr key={el._id} style={el.operacao === 'debito' ? {backgroundColor: 'red'} : {backgroundColor: 'green'}}>
-                                        <td>{el.titulo}</td>
-                                        <td><span>{el.operacao === 'credito' ? '+' : '-'}</span>R${el.valorDinheiro}</td>
-                                        <td>{el.operacao}</td>
-                                        <td>{el.descricao}</td>
-                                        <td>{el.horaPost}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                <div className="leftSideMain">
+                    <div className="topMain">
+                        <code>Seja bem vindo<br/><span>Nicolas</span></code>
                     </div>
-                    <div className="showGraphMoney">
-                     graph
+                    <div className="bottomMain">
+                        <button onClick={() => this.openModal(true)}>Adicionar Despesa</button>
+                        <button onClick={this.seeAll}>Ver Todas</button>
                     </div>
                 </div>
             </div>
+          </div>
+          <div className="showTodas">
+          <Tabs defaultIndex={this.state.defaultIndex}>
+            <TabList>
+                <Tab style={{backgroundColor: '#3A3B42', color: 'white'}}>Informações</Tab>
+                <Tab >Suas despesas</Tab>
+            </TabList>
+
+            <TabPanel>
+                <p>teste</p>
+            </TabPanel>
+            <TabPanel>
+                    <code>Ultimos Lançamentos</code>
+                <table className="tableTodas">
+                    <tbody>
+                        <tr>
+                            <td>Titulo</td>
+                            <td>Valor</td>
+                            <td>Descrição</td>
+                            <td>Data</td>
+                        </tr>
+                        {
+                            this.state.todasOperacoesUsuarios.length === 0 ? <h1>Nenhum registro</h1> : 
+                            this.state.todasOperacoesUsuarios.map(el => (
+                                <tr key={el._id} 
+                                style={el.operacao === 'debito' ? {backgroundColor: '#E41F28'} : {backgroundColor: '#039145'}}
+                                onClick={() => this.openInfoAll(el._id)}>
+                                    <td>{el.titulo}</td>
+                                    <td width="30%"><span>{el.operacao === 'credito' ? '+' : '-'}</span>R${el.valorDinheiro}</td>
+                                    <td>{el.descricao}</td>
+                                    <td>{el.horaPost}</td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </TabPanel>
+        </Tabs>
           </div>
       </React.Fragment>
     )
