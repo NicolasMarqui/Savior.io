@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props){
     super(props);
@@ -10,6 +11,8 @@ export default class Login extends Component {
     this.state = {
       email: '',
       senha: '',
+      redirect: false,
+      dadosUser: {},
     }
   }
 
@@ -19,11 +22,38 @@ export default class Login extends Component {
     })
   }
 
+  componentDidMount = () => {
+    localStorage.clear();
+  }
+
   sendLogin = e => {
-    console.log(this.state)
+
+    e.preventDefault();
+    
+    const novoUsuario = {
+      email: this.state.email,
+      senha: this.state.senha
+    }
+
+    axios.post('http://localhost:5000/api/user/login', novoUsuario)
+      .then(res => {
+        localStorage.setItem('id', res.data.user.id);
+        localStorage.setItem('nome', res.data.user.nome);
+        
+        this.setState({ dadosUser: res.data.user, redirect: true })
+
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
+
+    const { redirect, dadosUser } = this.state;
+
+    if(redirect){
+      return <Redirect to={`/dashboard/${dadosUser.nome}`} />
+    }
+
     return (
       <React.Fragment>
         <div className="loginWrapper">
@@ -58,3 +88,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default Login;

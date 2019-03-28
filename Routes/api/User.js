@@ -83,6 +83,9 @@ route.post("/login", (req, res) => {
             email: user.email
           }
         });
+
+        console.log(user)
+
       });
     });
   });
@@ -93,5 +96,7 @@ route.get("/data", auth, (req, res) => {
     .select("-senha")
     .then(user => res.json(user));
 });
+
+
 
 module.exports = route;

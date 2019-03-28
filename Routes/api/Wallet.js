@@ -1,5 +1,6 @@
 const express = require("express");
 const route = express.Router();
+const mongoose = require('mongoose')
 
 //Import Model
 const Contas = require("../../models/Contas");
@@ -77,14 +78,18 @@ route.get('/all/:id', (req,res) => {
 
 })
 
-route.get('/despesa', (req, res) => {
-  const id = req.query.id
-  console.log(req.query.id)
+route.delete('/despesa/:id', (req, res) => {
+  const deletedId = req.params.id;
 
-  Contas.findOne({ _id: id }).sort({ horaPost: -1 }).exec((err, conta) => {
+  Contas.findByIdAndRemove({ _id: deletedId }).exec((err, conta) => {
     if(err) throw err;
 
-    res.json(conta)
+    const response = {
+      mensagem: "Operação deletada",
+      id: deletedId
+    }
+
+    res.status(200).send(response) 
   })
  
 })

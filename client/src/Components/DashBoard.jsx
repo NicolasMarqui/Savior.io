@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
-import Modal from './Modal';
+import Spinner from 'react-spinkit'
 
 class DashBoard extends Component {
 
@@ -14,7 +14,7 @@ class DashBoard extends Component {
             isOpen: false,
             allOp: [],
             todasOperacoesUsuarios: [],
-            autoReload: true,
+            autoReload: false,
             isOpenModal: false,
             titulo: '',
             desc: '',
@@ -24,15 +24,24 @@ class DashBoard extends Component {
             defaultIndex: 1,
             despesaInfo: [],
             openDespesa: false,
+            loadingPrice: false,
+            loadingOp: false,
         }
     }
 
     componentDidMount = () => {
-        axios.get('http://localhost:5000/api/money/user/5c88f162f2a2b72f0c55e5cb')
-            .then(res => this.setState({ allOp: res.data }))
 
-        axios.get('http://localhost:5000/api/money/all/5c88f162f2a2b72f0c55e5cb')
-            .then(res => this.setState({ todasOperacoesUsuarios: res.data }))
+        console.log(localStorage.getItem('id'))
+        console.log(localStorage.getItem('nome'))
+
+        axios.get(`http://localhost:5000/api/money/user/${localStorage.getItem('id')}`)
+            .then(res => {
+                this.setState({ allOp: res.data , loadingPrice: true})
+                console.log(res.data)
+            })
+
+        axios.get(`http://localhost:5000/api/money/all/${localStorage.getItem('id')}`)
+            .then(res => this.setState({ todasOperacoesUsuarios: res.data , loadingOp: true}))
     }
 
     changeSideWidth = () => {
@@ -48,7 +57,7 @@ class DashBoard extends Component {
 
 
         const newEntry = {
-            idPessoa: "5c88f162f2a2b72f0c55e5cb",
+            idPessoa: localStorage.getItem('id'),
             valorDinheiro: this.state.valor,
             operacao: this.state.op,
             titulo: this.state.titulo,
@@ -59,7 +68,7 @@ class DashBoard extends Component {
         axios.all([
             axios.post('http://localhost:5000/api/money/add', newEntry),
             axios.put(`http://localhost:5000/api/money/edit?id=${newEntry.idPessoa}&op=${newEntry.operacao}&valor=${newEntry.valorDinheiro}`),
-            axios.get('http://localhost:5000/api/money/user/5c88f162f2a2b72f0c55e5cb')
+            axios.get(`http://localhost:5000/api/money/user/${newEntry.idPessoa}`)
         ])
         .then(axios.spread((post, put, get) => {
             console.log(put,post,get)
@@ -92,12 +101,19 @@ class DashBoard extends Component {
     openInfoAll = (id) => {
         this.setState({ openDespesa: !this.state.openDespesa })
         console.log(id)
-        axios.get(`http://localhost:5000/api/money/despesa?id=${id}`)
-            .then(res => console.log(res.data))
+        axios.delete(`http://localhost:5000/api/money/despesa/${id}`)
+            .then(res => {
+                this.setState(prevState => {
+                    return{
+                        todasOperacoesUsuarios: prevState.todasOperacoesUsuarios.filter(m => m._id !== id)
+                    }
+                })
+            })
+
+        // window.location.reload()
     }
 
   render() {
-
     return (
       <React.Fragment>
           <div className="dashWrapper">
@@ -110,7 +126,7 @@ class DashBoard extends Component {
                     <ul>
                         <li className="active"><a href="_">Home</a></li>
                         <li><a href="_">Ver Todas</a></li>
-                        <li><a href="_">Adicionar Nova</a></li>
+                        <li style={{ cursor: 'pointer' }} onClick={() => this.setState({ isOpenModal: true, isOpen: false })}><a>Adicionar Nova</a></li>
                     </ul>
                 </div>
             </div>
@@ -120,7 +136,7 @@ class DashBoard extends Component {
             <div className="topFixedDash">
                 <i className={this.state.isOpenMobile ? 'fas fa-times fa-2x' : 'fas fa-bars fa-2x'} onClick={this.changeSideHeight}
                 ></i>
-                <h3><span>Nicolas</span></h3>
+                <h3><span>{localStorage.getItem('nome')}</span></h3>
             </div>
             <div className="showNavMobile" style={this.state.isOpenMobile ? { display: 'flex' } : { display: 'none' }}>
                 <div className="centerMobileNav">
@@ -133,31 +149,42 @@ class DashBoard extends Component {
             </div>
             <div className="mainContentDash">
                 <div className="fullModalScreen" style={this.state.isOpenModal ? { display: 'flex' } : { display: 'none' }}>
-                        <i className="fas fa-times fa-2x" onClick={() => this.openModal(false)}></i>
-                        <div className="centerModal">
-                            <h1>Adicionar Despesa</h1>
-                            <input type="text" placeholder="Titulo" value={this.state.titulo} onChange={this.handleData} name="titulo"/>
-                            <input type="text" placeholder="Valor" value={this.state.valor} onChange={this.handleData} name="valor"/>
-                            <select name="select" value={this.state.op} onChange={(e) => this.setState({ op: e.target.value })}>
-                                <option disabled>Escolha a operacao</option>
-                                <option value="credito">Crédito</option>
-                                <option value="debito">Débito</option>
-                            </select>
-                            <input type="text" placeholder="Descrição" value={this.state.desc} onChange={this.handleData} name="desc"/>
-                            <button onClick={this.salve}>Salvar</button>
-                        </div>
+                    <i className="fas fa-times fa-2x" onClick={() => this.openModal(false)}></i>
+                    <div className="centerModal">
+                        <h1>Adicionar Despesa</h1>
+                        <input type="text" placeholder="Titulo" value={this.state.titulo} onChange={this.handleData} name="titulo"/>
+                        <input type="text" placeholder="Valor" value={this.state.valor} onChange={this.handleData} name="valor"/>
+                        <select name="select" value={this.state.op} onChange={(e) => this.setState({ op: e.target.value })}>
+                            <option disabled>Escolha a operacao</option>
+                            <option value="credito">Crédito</option>
+                            <option value="debito">Débito</option>
+                        </select>
+                        <input type="text" placeholder="Descrição" value={this.state.desc} onChange={this.handleData} name="desc"/>
+                        <label style={{color: 'white'}} htmlFor="autoreload">Auto-Reload?</label>
+                        <input type="checkbox" name="autoreload" onChange={() => this.setState({ autoReload: !this.state.autoReload })}/>
+                        <button onClick={this.salve}>Salvar</button>
                     </div>
+                </div>
                 <div className="rightSideMain">
                     <div className="overlayRight">
                     </div>
                     <div className="centerTextRightMain">
                         <code>Seu saldo atual</code>
-                        <h1>R${this.state.allOp.quantidadeDinheiro},00</h1>
+                        {
+                            !this.state.loadingPrice ? <Spinner style={{margin: '2% auto'}} name="line-scale-pulse-out-rapid" />:
+                            <h1>R${this.state.allOp.quantidadeDinheiro},00</h1>
+                        }
                     </div>
                 </div>
                 <div className="leftSideMain">
                     <div className="topMain">
-                        <code>Seja bem vindo<br/><span>Nicolas</span></code>
+                        <code>Seja bem vindo<br/><span>{
+                         
+                         !this.state.loadingPrice ? <Spinner style={{margin: '2% auto'}} name="circle" /> :
+                         
+                         this.state.allOp.nome
+                            
+                        }</span></code>
                     </div>
                     <div className="bottomMain">
                         <button onClick={() => this.openModal(true)}>Adicionar Despesa</button>
@@ -177,7 +204,10 @@ class DashBoard extends Component {
                 <p>teste</p>
             </TabPanel>
             <TabPanel>
-                    <code>Ultimos Lançamentos</code>
+                <code>Ultimos Lançamentos</code>
+                {
+                !this.state.loadingOp ? <Spinner className="centerSpin" name="folding-cube" /> :
+                this.state.todasOperacoesUsuarios.length === 0 ? <h1>Nenhuma Operação</h1> :
                 <table className="tableTodas">
                     <tbody>
                         <tr>
@@ -187,7 +217,6 @@ class DashBoard extends Component {
                             <td>Data</td>
                         </tr>
                         {
-                            this.state.todasOperacoesUsuarios.length === 0 ? <h1>Nenhum registro</h1> : 
                             this.state.todasOperacoesUsuarios.map(el => (
                                 <tr key={el._id} 
                                 style={el.operacao === 'debito' ? {backgroundColor: '#E41F28'} : {backgroundColor: '#039145'}}
@@ -195,12 +224,14 @@ class DashBoard extends Component {
                                     <td>{el.titulo}</td>
                                     <td width="30%"><span>{el.operacao === 'credito' ? '+' : '-'}</span>R${el.valorDinheiro}</td>
                                     <td>{el.descricao}</td>
-                                    <td>{el.horaPost}</td>
+                                    <td className="mobilePost">{el.horaPost}</td>
                                 </tr>
                             ))
                         }
                     </tbody>
                 </table>
+
+                }
             </TabPanel>
         </Tabs>
           </div>

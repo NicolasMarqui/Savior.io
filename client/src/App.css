@@ -987,7 +987,7 @@
 
 .dashWrapper .mainContentDash .leftSideMain .topMain code span {
   color: #fff;
-  font-size: 25px;
+  font-size: 45px;
 }
 
 .dashWrapper .mainContentDash .leftSideMain .bottomMain {
@@ -1017,6 +1017,8 @@
   width: 50%;
   background-color: #ffcd00;
   cursor: pointer;
+  font-size: 25px;
+  font-weight: 300;
 }
 
 .dashWrapper .mainContentDash .fullModalScreen {
@@ -1088,40 +1090,21 @@
   cursor: pointer;
 }
 
-.modalInfo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  display: none;
-}
-
-.modalInfo i {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modalInfo .centerInfoDespesa {
-  margin: auto;
-  min-height: 200px;
-  width: 70%;
-  background-color: #fff;
-}
-
 .showTodas {
   width: 80%;
   margin: 5% auto;
   min-height: 100vh;
   position: relative;
+  text-align: center;
+}
+
+.showTodas .centerSpin {
+  margin: 5% auto;
+}
+
+.showTodas .tableTodas {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .showTodas .tableTodas tr:hover {
@@ -1341,39 +1324,6 @@
     min-height: 100%;
     width: 100%;
   }
-  .mainContentDash {
-    z-index: 1;
-    width: 100%;
-    border: 2px solid red;
-  }
-  .mainContentDash .displayAmount {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-flow: column-reverse nowrap;
-            flex-flow: column-reverse nowrap;
-  }
-  .mainContentDash .fullModalScreen {
-    width: 100%;
-    border: 2px solid red;
-  }
-  .mainContentDash .fullModalScreen .centerModal i {
-    position: absolute;
-    top: 2% !important;
-    right: 2% !important;
-  }
-  .mainContentDash .showEvents {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-  }
-  .mainContentDash .showEvents .novaEntrada {
-    min-height: 200px;
-    width: 100%;
-  }
-  .mainContentDash .showEvents .novaEntrada table {
-    width: 50%;
-  }
   .dashWrapper {
     width: 100%;
   }
@@ -1425,8 +1375,78 @@
     color: #fff;
     border-bottom: 2px solid black;
   }
-  .showTodas .tableTodas {
-    overflow: scroll;
+  .dashWrapper .mainContentDash {
+    z-index: 1;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+  }
+  .dashWrapper .mainContentDash .displayAmount {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+  }
+  .dashWrapper .mainContentDash .rightSideMain .centerTextRightMain h1 {
+    font-size: 25px;
+  }
+  .dashWrapper .mainContentDash .leftSideMain {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dashWrapper .mainContentDash .leftSideMain .topMain code span {
+    font-size: 45px;
+  }
+  .dashWrapper .mainContentDash .leftSideMain .bottomMain button {
+    padding: 4%;
+    width: 70%;
+    font-size: 25px;
+    font-weight: 300;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen {
+    width: 100%;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal i {
+    position: absolute;
+    top: 2% !important;
+    right: 2% !important;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal input {
+    width: 90%;
+    padding: 2%;
+    font-size: 25px;
+    margin: 5%;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal select {
+    width: 50%;
+    margin: 2%;
+    text-align: right;
+  }
+  .dashWrapper .mainContentDash .showEvents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .dashWrapper .mainContentDash .showEvents .novaEntrada {
+    min-height: 200px;
+    width: 100%;
+  }
+  .dashWrapper .mainContentDash .showEvents .novaEntrada table {
+    width: 50%;
+  }
+  .showTodas .tableTodas tbody tr:nth-child(1) td:nth-child(4) {
+    display: none;
+  }
+  .showTodas .tableTodas tbody .mobilePost {
+    display: none;
   }
 }
 
@@ -1503,6 +1523,79 @@
             flex-flow: column nowrap;
     margin-top: 5%;
     margin-bottom: 2%;
+  }
+  .dashWrapper {
+    width: 100%;
+  }
+  .dashWrapper .mainContentDash {
+    z-index: 1;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .dashWrapper .mainContentDash .displayAmount {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse nowrap;
+            flex-flow: column-reverse nowrap;
+  }
+  .dashWrapper .mainContentDash .rightSideMain .centerTextRightMain h1 {
+    font-size: 25px;
+  }
+  .dashWrapper .mainContentDash .leftSideMain {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .dashWrapper .mainContentDash .leftSideMain .topMain code span {
+    font-size: 45px;
+  }
+  .dashWrapper .mainContentDash .leftSideMain .bottomMain button {
+    padding: 2%;
+    width: 50%;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen {
+    width: 100%;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal i {
+    position: absolute;
+    top: 2% !important;
+    right: 2% !important;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal input {
+    width: 90%;
+    padding: 2%;
+    font-size: 25px;
+    margin: 5%;
+  }
+  .dashWrapper .mainContentDash .fullModalScreen .centerModal select {
+    width: 50%;
+    margin: 2%;
+    text-align: right;
+  }
+  .dashWrapper .mainContentDash .showEvents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+  }
+  .dashWrapper .mainContentDash .showEvents .novaEntrada {
+    min-height: 200px;
+    width: 100%;
+  }
+  .dashWrapper .mainContentDash .showEvents .novaEntrada table {
+    width: 50%;
+  }
+  .showTodas {
+    border: 2px solid red;
   }
 }
 
