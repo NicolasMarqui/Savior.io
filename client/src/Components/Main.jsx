@@ -2,23 +2,9 @@ import React from 'react';
 import Nav from './Nav';
 import Wallet from '../Assets/wallet.png';
 import Review from './pessoas';
+import TextLoop from "react-text-loop";
 
 const Main = () => {
-
-    // const [title, changeTitle] = useState("Salve");
-
-    // function change() {
-    //     setInterval(getName(), 4000);
-    // } 
-
-    // const getName = () => {
-    //     changeTitle("Aproveite");
-    // }
-
-    // useEffect(() => {
-    //     change();
-    // }, [])
-
     return(
         <React.Fragment>
             <div className="mainWrapper">
@@ -30,8 +16,13 @@ const Main = () => {
                 </div>
                 <div className="centerMain">
                     <div className="textMain">
-                        <h1><code></code> <br/>Seu <span>Dinheiro</span></h1>
-                        <button>Saiba Mais</button>
+                        <h1 className="displayChangeMobile">Salve <br/>Seu <span>Dinheiro</span></h1>
+                        <h1>
+                        <TextLoop 
+                                children={["Salve", "Aproveite", "Guarde"]} fade={true} interval={2000} springConfig={{ stiffness: 70, damping: 31 }}
+                                adjustingSpeed={500}></TextLoop>
+                            <br/>Seu <span>Dinheiro</span></h1>
+                        <button onClick={() => window.scrollTo(0,700)}>Saiba Mais</button>
                     </div>
                     <img src={Wallet} alt="wallet" height="400px" width="auto"/>
                 </div>

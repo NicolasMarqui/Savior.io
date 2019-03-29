@@ -180,41 +180,21 @@
   color: #fff;
 }
 
-.mainWrapper .centerMain .textMain h1 code::after {
-  content: "Salve";
-  -webkit-animation: changeName 2s infinite alternate;
-          animation: changeName 2s infinite alternate;
+.mainWrapper .centerMain .textMain .displayChangeMobile {
+  display: none;
 }
 
-@-webkit-keyframes changeName {
-  from {
-    content: "Salve";
-  }
-  to {
-    content: "Aproveite";
-  }
-}
-
-@keyframes changeName {
-  from {
-    content: "Salve";
-  }
-  to {
-    content: "Aproveite";
-  }
-}
-
-.mainWrapper .centerMain .textMain h1 span {
+.mainWrapper .centerMain .textMain span {
   border-bottom: 2px solid #ffcd00;
 }
 
-.mainWrapper .centerMain .textMain h1 span:hover {
+.mainWrapper .centerMain .textMain span:hover {
   border-bottom: 4px solid #ffcd00;
   -webkit-transition: 0.5s ease-in-out all;
   transition: 0.5s ease-in-out all;
 }
 
-.mainWrapper .centerMain .textMain button {
+.mainWrapper .centerMain button {
   padding: 4%;
   border: none;
   width: 60%;
@@ -224,7 +204,7 @@
   margin-bottom: 2%;
 }
 
-.mainWrapper .centerMain img {
+.mainWrapper img {
   position: absolute;
   top: 0;
   right: 0;
@@ -1229,10 +1209,11 @@
     text-align: center;
     margin-top: 10%;
   }
-  .mainWrapper .centerMain .textMain code::after {
-    content: "Salve";
-    -webkit-animation: none !important;
-            animation: none !important;
+  .mainWrapper .centerMain .textMain h1 {
+    display: none;
+  }
+  .mainWrapper .centerMain .textMain .displayChangeMobile {
+    display: block;
   }
   .mainWrapper .centerMain .textMain span {
     border-bottom: 2px solid #ffcd00;
