@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const path = require('path');
 
 //MiddleWares
 app.use(cors());
@@ -27,6 +28,18 @@ mongoose
   .connect(db, { useNewUrlParser: true }) 
   .then(console.log("Banco de dados conectado com sucesso"))
   .catch(err => console.log(err));
- 
+
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+  }
+
+app.use(function(req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+
 //Listen
 app.listen(port, () => console.log(`Server rodando na porta ${port}`));

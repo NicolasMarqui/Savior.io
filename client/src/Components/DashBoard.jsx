@@ -34,13 +34,13 @@ class DashBoard extends Component {
         console.log(localStorage.getItem('id'))
         console.log(localStorage.getItem('nome'))
 
-        axios.get(`http://localhost:5000/api/money/user/${localStorage.getItem('id')}`)
+        axios.get(`/api/money/user/${localStorage.getItem('id')}`)
             .then(res => {
                 this.setState({ allOp: res.data , loadingPrice: true})
                 console.log(res.data)
             })
 
-        axios.get(`http://localhost:5000/api/money/all/${localStorage.getItem('id')}`)
+        axios.get(`/api/money/all/${localStorage.getItem('id')}`)
             .then(res => this.setState({ todasOperacoesUsuarios: res.data , loadingOp: true}))
     }
 
@@ -66,9 +66,9 @@ class DashBoard extends Component {
 
 
         axios.all([
-            axios.post('http://localhost:5000/api/money/add', newEntry),
-            axios.put(`http://localhost:5000/api/money/edit?id=${newEntry.idPessoa}&op=${newEntry.operacao}&valor=${newEntry.valorDinheiro}`),
-            axios.get(`http://localhost:5000/api/money/user/${newEntry.idPessoa}`)
+            axios.post('/api/money/add', newEntry),
+            axios.put(`/api/money/edit?id=${newEntry.idPessoa}&op=${newEntry.operacao}&valor=${newEntry.valorDinheiro}`),
+            axios.get(`/api/money/user/${newEntry.idPessoa}`)
         ])
         .then(axios.spread((post, put, get) => {
             console.log(put,post,get)
@@ -101,7 +101,7 @@ class DashBoard extends Component {
     openInfoAll = (id) => {
         this.setState({ openDespesa: !this.state.openDespesa })
         console.log(id)
-        axios.delete(`http://localhost:5000/api/money/despesa/${id}`)
+        axios.delete(`/api/money/despesa/${id}`)
             .then(res => {
                 this.setState(prevState => {
                     return{

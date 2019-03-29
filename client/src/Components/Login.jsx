@@ -35,7 +35,7 @@ class Login extends Component {
       senha: this.state.senha
     }
 
-    axios.post('http://localhost:5000/api/user/login', novoUsuario)
+    axios.post('/api/user/login', novoUsuario)
       .then(res => {
         localStorage.setItem('id', res.data.user.id);
         localStorage.setItem('nome', res.data.user.nome);
